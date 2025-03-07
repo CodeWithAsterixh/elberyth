@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* header */
+.top-header {
+  @apply w-full relative bg-primary p-2 sm:px-10 flex items-center justify-between;
+}
+.top-header > h1 {
+  @apply text-lg text-accent;
+}
+.top-header > ul {
+  @apply flex items-center gap-3;
+}
+.top-header > ul > li > .pi {
+  @apply text-accent text-lg;
+}
+.main-header {
+  @apply w-full hidden sm:flex bg-accent p-2 py-5 sticky top-0 sm:px-10 items-center justify-between;
+}
+.main-header > ul {
+  @apply flex items-center gap-3;
+}
+.main-header > ul > li {
+  @apply text-icon hover:text-primary duration-300 text-xl cursor-pointer;
+}
+.main-header > ul.navigation {
+  @apply gap-4;
+}
+.main-header > ul.navigation > li {
+  @apply hover:text-primary duration-300;
+}
+
+.small-main-header {
+  @apply w-full sm:hidden flex flex-col bg-accent fixed left-0 z-40;
+}
+.small-main-header > ul.navigation {
+  @apply w-full flex flex-col items-center p-2;
+}
+.small-main-header > ul.navigation > li {
+  @apply w-full border-b-2 border-primary p-2 my-2 text-center text-primary;
+}
+.small-main-header > ul.actions {
+  @apply w-full flex items-center justify-center gap-3 p-2;
+}
+.small-main-header > ul.actions > li {
+  @apply bg-primary flex items-center justify-center text-accent p-3;
+}

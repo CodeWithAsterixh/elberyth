@@ -73,6 +73,7 @@ const categories = [
   { image: "/files/images/image-skin (2).jpeg", title: "Skin" },
 ];
 
+const groupedProduct = groupProductsByCategory(products)
 
 </script>
 
@@ -148,8 +149,8 @@ const categories = [
             <Button
               class="w-fit !bg-primary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2"
             >
-              <i class="pi pi-shopping-cart"></i>
-              Shop now
+              <i class="pi pi-cart-plus"></i>
+              Add to cart
             </Button>
           </div>
           <span class="w-full sm:w-fit shrink-0 bg-highlight">
@@ -174,7 +175,7 @@ const categories = [
         class="w-full sm:px-10 px-4 z-10 relative grid gap-2 grid-cols-[repeat(auto-fill,minmax(150px,1fr))] md:grid-cols-4 text-white"
       >
         <li
-          v-for="(category, index) in categories"
+          v-for="(category, index) in groupedProduct"
           :key="index"
           class="flex flex-col px-2 py-4 items-center justify-center gap-2 text-center"
         >
@@ -182,13 +183,13 @@ const categories = [
             class="w-full border-2 py-2 px-2.5 border-primary flex items-center justify-center"
           >
             <img
-              :src="category.image"
+              :src="category.items[Math.floor(Math.random()*category.items.length)].image"
               alt="category"
               class="w-full h-32 object-cover object-center"
             />
           </span>
           <h4 class="text-lg font-semibold bg-light text-primary px-2">
-            {{ category.title }}
+            {{ category.name }}
           </h4>
         </li>
       </ul>
@@ -207,8 +208,8 @@ const categories = [
 
     <!-- categories mini list -->
 
-     <HomeCategoryListContainer v-for="(category, index) in groupProductsByCategory(products)" :key="index" :title="category.name">
-      <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :product-name="item.productName" :price="item.price" :src="item.src" />
+     <HomeCategoryListContainer v-for="(category, index) in groupedProduct" :key="index" :title="category.name">
+      <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :id="item.id" :product-name="item.name" :price="item.price" :src="item.image" />
      </HomeCategoryListContainer>
      
   </div>

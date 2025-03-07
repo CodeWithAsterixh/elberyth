@@ -38,7 +38,7 @@ onMounted(() => {
       <ul class="navigation">
         <li><NuxtLink href="/">Home</NuxtLink></li>
         <li><NuxtLink href="/shop">Shop</NuxtLink></li>
-        <li><NuxtLink href="#">Contact us</NuxtLink></li>
+        <li><NuxtLink href="/contact">Contact us</NuxtLink></li>
       </ul>
       <ul class="actions">
         <li><i class="pi pi-heart"></i></li>
@@ -75,7 +75,7 @@ onMounted(() => {
       <ul class="navigation">
         <li><NuxtLink href="/">Home</NuxtLink></li>
         <li><NuxtLink href="/shop">Shop</NuxtLink></li>
-        <li><NuxtLink href="#">Contact us</NuxtLink></li>
+        <li><NuxtLink href="/contact">Contact us</NuxtLink></li>
       </ul>
       <ul class="actions">
         <li><i class="pi pi-heart"></i></li>
@@ -87,7 +87,7 @@ onMounted(() => {
         @click="toggleShow"
         class="p-2 px-4 flex rounded-b-full shadow-md items-center justify-center bg-accent absolute top-[calc(100%-2px)] left-1/2 -translate-x-1/2"
       >
-        <i class="pi pi-times text-3xl text-primary"></i>
+        <i class="pi pi-times !text-3xl !text-primary"></i>
       </button>
     </nav>
     

@@ -13,7 +13,7 @@ const props = defineProps(['title'])
       <a href="#" class="hover:underline">see all <i class="pi pi-arrow-right text-xs"></i></a>
     </div>
     <div
-      class="w-full grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-3"
+      class="w-full grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3"
     >
       <slot/>
     </div>

@@ -23,6 +23,11 @@ export interface Product {
   rating?: number;          // Optional: customer rating (e.g., 1 to 5)
 }
 
+export interface stateProcess {
+  status:"loading"|"error"|"done"|"not-started"
+  cycle: "has-retried-many"|"has-not-retried"|"should-retry"
+}
+
 
 export type CategoryGroup = {
   name: string;

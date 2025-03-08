@@ -213,7 +213,7 @@ const featuredProduct = randomGroup.items[Math.floor(Math.random()*randomGroup.i
     <!-- categories mini list -->
 
      <HomeCategoryListContainer v-for="(category, index) in groupedProduct" :key="index" :title="category.name">
-      <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :id="item.id" :product-name="item.name" :price="item.price" :src="item.image" />
+      <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :product="item" />
      </HomeCategoryListContainer>
      
   </div>

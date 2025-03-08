@@ -49,3 +49,37 @@
 .small-main-header > ul.actions > li {
   @apply bg-primary hover:bg-secondary/50 hover:text-primary duration-300 flex items-center justify-center text-accent p-3;
 }
+
+.badge {
+  @apply relative;
+}
+.badge[data-position=top-left]::before{
+  @apply -top-2 -left-2;
+}
+.badge[data-position=top-right]::before{
+  @apply -top-2 -right-2;
+}
+.badge[data-position=bottom-left]::before{
+  @apply -bottom-2 -left-2;
+}
+.badge[data-position=bottom-right]::before{
+  @apply -bottom-2 -right-2;
+}
+.badge::before{
+  content: attr(data-content);
+}
+
+.badge::before{
+  @apply absolute text-xs bg-primary px-1 text-accent scale-75 rounded-full duration-300;
+}
+.badge::before{
+  animation: scaleIn 0.5s linear forwards;
+}
+@keyframes scaleIn{
+  from{
+    @apply scale-0;
+  }
+  to{
+    @apply scale-100;
+  }
+}

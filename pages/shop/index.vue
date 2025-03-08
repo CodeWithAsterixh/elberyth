@@ -24,7 +24,7 @@ const toggleShowFilter = () => {
             <div
               class="w-full grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] sm:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3"
             >
-            <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :id="item.id" :product-name="item.name" :price="item.price" :src="item.image" />
+            <ProductCardComponent v-for="(item, index2) in category.items" :key="index2" :product="item" />
 
             </div>
           </div>

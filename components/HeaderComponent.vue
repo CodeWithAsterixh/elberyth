@@ -4,7 +4,7 @@ const toggleShow = () => {
   menuShown.value = !menuShown.value;
 };
 const isTopShown = ref(false);
-
+const {cart} = useCart()
 onMounted(() => {
   const header = document.querySelector("header");
   const nav = document.querySelector("nav");
@@ -43,7 +43,7 @@ onMounted(() => {
       <ul class="actions">
         <li><i class="pi pi-heart"></i></li>
         <li><i class="pi pi-arrow-right-arrow-left"></i></li>
-        <li><i class="pi pi-shopping-cart"></i></li>
+        <li><NuxtLink href="/cart"><BadgeComponent :show="cart.items.length?true:false" :content="cart.items.length" position="top-right"><i class="pi pi-shopping-cart"></i></BadgeComponent></NuxtLink></li>
         <li><i class="pi pi-search"></i></li>
       </ul>
     </nav>
@@ -80,7 +80,7 @@ onMounted(() => {
       <ul class="actions">
         <li><i class="pi pi-heart"></i></li>
         <li><i class="pi pi-arrow-right-arrow-left"></i></li>
-        <li><i class="pi pi-shopping-cart"></i></li>
+        <li><NuxtLink href="/cart"><BadgeComponent :show="cart.items.length?true:false" :content="cart.items.length" position="top-right"><i class="pi pi-shopping-cart"></i></BadgeComponent></NuxtLink></li>
         <li><i class="pi pi-search"></i></li>
       </ul>
       <button

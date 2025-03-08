@@ -56,14 +56,7 @@ const services = [
   },
 ];
 
-// Featured product data
-const featuredProduct = {
-  title: "Product 1",
-  description:
-    "Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, laborum.",
-  image:
-    "/files/images/Streetwear Women Retro Loose Short Pu Faux Leather Jacket Female Zipper Coat.jpeg",
-};
+
 
 // Categories list data
 const categories = [
@@ -74,6 +67,9 @@ const categories = [
 ];
 
 const groupedProduct = groupProductsByCategory(products)
+// Featured product data
+const randomGroup = groupedProduct[Math.floor(Math.random()*groupedProduct.length)]
+const featuredProduct = randomGroup.items[Math.floor(Math.random()*randomGroup.items.length)]
 
 </script>
 
@@ -111,7 +107,7 @@ const groupedProduct = groupProductsByCategory(products)
           <span
             class="border-2 py-2 px-2.5 border-accent flex items-center justify-center rounded-full"
           >
-            <i :class="[service.icon, 'text-4xl']"></i>
+            <i :class="[service.icon, '!text-4xl']"></i>
           </span>
           <h4 class="text-lg font-semibold">{{ service.title }}</h4>
           <p class="text-base">{{ service.description }}</p>
@@ -142,22 +138,30 @@ const groupedProduct = groupProductsByCategory(products)
           class="w-full flex gap-5 flex-col-reverse sm:flex-row items-center max-w-5xl m-auto px-4 sm:px-10 mt-5"
         >
           <div
-            class="w-full flex flex-col justify-center px-4 sm:px-10 gap-4 min-h-full"
+            class="w-full flex flex-col justify-center sm:px-10 gap-4 min-h-full"
           >
-            <h1 class="font-bold text-3xl">{{ featuredProduct.title }}</h1>
-            <p>{{ featuredProduct.description }}</p>
-            <Button
+            <h1 class="font-bold text-3xl">{{ featuredProduct.name }}</h1>
+            <p>{{ featuredProduct.details }}</p>
+            <div class="w-full flex flex-wrap *:basis-44 gap-2">
+              <Button
               class="w-fit !bg-primary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2"
             >
               <i class="pi pi-cart-plus"></i>
               Add to cart
             </Button>
+            <NuxtLink
+              :href="`/shop/${featuredProduct.id}`"
+              class="w-fit !bg-secondary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2"
+            >
+              View product
+            </NuxtLink>
+            </div>
           </div>
           <span class="w-full sm:w-fit shrink-0 bg-highlight">
             <img
               class="w-full sm:w-fit max-h-96 lg:max-h-[70vh] object-cover"
               :src="featuredProduct.image"
-              :alt="featuredProduct.title"
+              :alt="featuredProduct.image"
             />
           </span>
         </div>

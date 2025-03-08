@@ -3,7 +3,7 @@
 </script>
 
 <template>
-   <footer class="bg-primary text-white p-8">
+   <footer class="bg-primary text-white px-4 sm:px-8 py-8">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
     <!-- Company Info -->
     <div class="flex flex-col gap-4">
@@ -17,10 +17,10 @@
     <nav class="flex flex-col gap-2 min-w-44">
       <h3 class="text-lg font-semibold">Quick Links</h3>
       <ul class="flex flex-col gap-1">
-        <li><a href="#" class="hover:underline">Home</a></li>
-        <li><a href="#" class="hover:underline">Shop</a></li>
-        <li><a href="#" class="hover:underline">About Us</a></li>
-        <li><a href="#" class="hover:underline">Contact</a></li>
+        <li><NuxtLink href="/" class="hover:underline">Home</NuxtLink></li>
+        <li><NuxtLink href="/shop" class="hover:underline">Shop</NuxtLink></li>
+        <li><NuxtLink href="/about" class="hover:underline">About Us</NuxtLink></li>
+        <li><NuxtLink href="/contact" class="hover:underline">Contact</NuxtLink></li>
       </ul>
     </nav>
     <!-- Newsletter Signup -->

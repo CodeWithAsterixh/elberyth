@@ -3,21 +3,26 @@
     <Transition name="fade">
       <div
         v-if="isOpen"
-        class="fixed w-screen h-screen !box-border inset-0 flex items-end justify-center bg-black/50 z-50 sm:px-4"
+        class="fixed w-screen h-screen !box-border inset-0 flex items-end sm:items-center justify-center bg-black/50 z-50 sm:px-4"
         @click="close"
       >
         <div
           v-bind="$attrs"
-          class="bg-white min-w-[20rem] dark:bg-neutral-900 py-8 px-2 sm:px-6 rounded-lg shadow-lg max-w-full max-h-[90vh] min-h-36 sm:min-h-fit sm:max-w-[70vw] w-full sm:w-fit relative"
+          class="bg-white min-w-[20rem] dark:bg-neutral-900 flex flex-col gap-3 rounded-lg shadow-lg max-w-full max-h-[90vh] min-h-[20rem] sm:min-h-fit sm:max-w-[70vw] w-full sm:w-fit relative"
           @click.stop
         >
-          <button
-            class="absolute top-2 right-3 text-3xl text-neutral-400 hover:text-neutral-100 cursor-pointer"
+          <div class="w-full flex items-center justify-between p-3 bg-accent rounded-t-lg">
+            <h2 class="text-xl font-bold text-primary">{{ header }}</h2>
+            <button
+            class="text-3xl text-primary/70 hover:text-primary cursor-pointer"
             @click="close"
           >
             &times;
           </button>
-          <slot></slot>
+          </div>
+          <div class="w-fit min-w-full min-h-full p-3 sm:px-6">
+            <slot></slot>
+          </div>
         </div>
       </div>
     </Transition>
@@ -25,7 +30,7 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{ isOpen: boolean }>()
+defineProps<{ isOpen: boolean, header?:string }>()
 const emit = defineEmits(['close'])
 
 const close = () => emit('close')

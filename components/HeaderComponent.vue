@@ -40,12 +40,15 @@ onMounted(() => {
         <li><NuxtLink href="/shop">Shop</NuxtLink></li>
         <li><NuxtLink href="/contact">Contact us</NuxtLink></li>
       </ul>
-      <ul class="actions">
-        <li><i class="pi pi-heart"></i></li>
-        <li><i class="pi pi-arrow-right-arrow-left"></i></li>
-        <li><NuxtLink href="/cart"><BadgeComponent :show="cart.items.length?true:false" :content="cart.items.length" position="top-right"><i class="pi pi-shopping-cart"></i></BadgeComponent></NuxtLink></li>
-        <li><i class="pi pi-search"></i></li>
+      <ul class="actions flex items-center gap-3">
+      
+      <li class="flex items-center justify-center"><NuxtLink href="/account" class="!h-fit flex items-center justify-center"><Avatar size="normal" shape="circle" image="/files/images/male (1).jpeg" /></NuxtLink></li>
+        <li><i class="pi pi-heart !text-lg"></i></li>
+        <li><i class="pi pi-arrow-right-arrow-left !text-lg"></i></li>
+        <li><NuxtLink href="/cart"><BadgeComponent :show="cart.items.length?true:false" :content="cart.items.length" position="top-right"><i class="pi pi-shopping-cart !text-lg"></i></BadgeComponent></NuxtLink></li>
+        <li><i class="pi pi-search !text-lg"></i></li>
       </ul>
+      
     </nav>
     <nav
       v-if="!menuShown||!isTopShown"
@@ -58,6 +61,8 @@ onMounted(() => {
       >
         Elberyth
       </h1>
+     <div class="flex items-center gap-3">
+      <NuxtLink href="/account"><Avatar size="normal" shape="circle" image="/files/images/male (1).jpeg" /></NuxtLink>
       <button
         :class="`${
           menuShown ? 'opacity-0 pointer-events-none' : 'opacity-100'
@@ -66,6 +71,7 @@ onMounted(() => {
       >
         <i class="pi pi-bars text-xl"></i>
       </button>
+     </div>
     </nav>
     <nav
       :class="`small-main-header shadow-md pb-5 duration-500 ${

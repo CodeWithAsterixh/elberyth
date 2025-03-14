@@ -28,11 +28,15 @@
       <h3 class="text-lg font-semibold">Newsletter</h3>
       <p class="text-sm">Subscribe to get the latest updates and exclusive offers.</p>
       <form class="flex flex-wrap gap-2">
-        <input
-          type="email"
-          placeholder="Your email"
-          class="p-2 text-black flex-1 flex-grow basis-32 !outline-none !border-none"
-        />
+        
+        <FloatLabel class="!flex-grow !basis-56" variant="in">
+          <InputText
+            id="email"
+            type="email"
+            class="w-full !bg-light !text-dark !border-transparent !rounded-none"
+          />
+          <label for="address" class="!text-primary">Your email</label>
+        </FloatLabel>
         <button
           type="submit"
           class="bg-accent text-primary p-2 flex-grow basis-32 hover:bg-secondary hover:text-accent transition"

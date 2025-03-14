@@ -1,11 +1,8 @@
-import { type Product } from "~/types";
+import { type cartItem, type Product } from "~/types";
 
 const cartState = reactive<
   {
-    items: {
-      productDetails: Product;
-      length: number;
-    }[];
+    items: cartItem[];
   }
 >({
   items: []

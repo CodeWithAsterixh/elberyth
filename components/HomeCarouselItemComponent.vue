@@ -44,9 +44,9 @@ onMounted(() => {
     >
       <h1 class="font-bold text-xl sm:text-3xl">{{ props.title }}</h1>
       <p>{{ props.description }}</p>
-      <Button class="w-fit !bg-secondary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2">
+      <button class="w-fit !bg-secondary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2">
         <i class="pi pi-shopping-cart"></i>Shop now
-      </Button>
+      </button>
     </div>
 
     <!-- Media Block -->

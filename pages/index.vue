@@ -7,25 +7,15 @@ import type { Product } from '~/types';
 // Data for the carousel
 const carouselData = [
   {
-    title: "Product category title",
-    description: "Discover best skin",
-    imgSrc: "/files/images/image-skin (1).jpeg",
-  },
-  {
-    title: "Product category title",
-    description: "Discover best skin 2",
-    imgSrc: "/files/images/image-skin (2).jpeg",
-  },
-  {
-    title: "Product category title",
-    description: "Discover best clothing 2",
+    title: "Fashion",
+    description: "Discover our astonishing wears, level up your style",
     imgSrc: "/files/images/image-cloth (2).jpeg",
   },
   {
-    title: "Product category title",
-    description: "Discover best clothing",
-    imgSrc: "/files/images/image-cloth (1).jpeg",
-  },
+    title: "Skincare",
+    description: "Beauty is pride. Look at what we have for you, Having fresh skin brings beauty",
+    imgSrc: "/files/images/image-skin (2).jpeg",
+  }
 ];
 const currentPageIndex = ref(0);
 const onPageChange = (e: number) => {
@@ -70,7 +60,7 @@ const groupedProduct = groupProductsByCategory(products)
 // Featured product data
 const randomGroup = groupedProduct[Math.floor(Math.random()*groupedProduct.length)]
 const featuredProduct = randomGroup.items[Math.floor(Math.random()*randomGroup.items.length)]
-
+const {addToCart} = useCart().actions
 </script>
 
 <template>
@@ -80,6 +70,7 @@ const featuredProduct = randomGroup.items[Math.floor(Math.random()*randomGroup.i
       content-class="max-w-[100vw]"
       @update:page="onPageChange"
       :show-navigators="false"
+      :show-indicators="false"
       :autoplay-interval="5000"
       :value="carouselData"
       class="!w-full !flex !items-center !justify-center !m-auto !relative !!z-0"
@@ -143,12 +134,13 @@ const featuredProduct = randomGroup.items[Math.floor(Math.random()*randomGroup.i
             <h1 class="font-bold text-3xl">{{ featuredProduct.name }}</h1>
             <p>{{ featuredProduct.details }}</p>
             <div class="w-full flex flex-wrap *:basis-44 gap-2">
-              <Button
+              <button
+              @click="()=>addToCart(featuredProduct)"
               class="w-fit !bg-primary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2"
             >
               <i class="pi pi-cart-plus"></i>
               Add to cart
-            </Button>
+            </button>
             <NuxtLink
               :href="`/shop/${featuredProduct.id}`"
               class="w-fit !bg-secondary !text-accent !px-4 !py-2 !flex !items-center !justify-center !gap-2"

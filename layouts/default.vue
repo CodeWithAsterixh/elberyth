@@ -3,6 +3,7 @@
 </script>
 
 <template>
+    <Toast />
     <HeaderComponent/>
     <NuxtPage/>
     <FooterComponent />
